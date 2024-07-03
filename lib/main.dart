@@ -9,6 +9,7 @@ import 'package:sunglasses/core/utils/app_constants.dart';
 import 'package:sunglasses/core/utils/messages.dart';
 import 'package:sunglasses/core/values/colors.dart';
 import 'package:sunglasses/helper/di_container.dart' as di;
+import 'package:sunglasses/module/splash/splash_page.dart';
 import 'package:sunglasses/routes/pages.dart';
 
 Future<void> main() async {

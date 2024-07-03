@@ -102,11 +102,16 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 14.h),
                 GetBuilder<CategoryController>(
                   builder: (categoryController) {
-                    return categoryController.getCatLoading
-                        ? const Center(
-                            child: CupertinoActivityIndicator(),
-                          )
-                        : categoryController.categoryList != null &&
+                    // return categoryController.getCatLoading
+                    return
+                        //     ? const Center(
+                        //         // child: CupertinoActivityIndicator(),
+                        //         // child: Padding(
+                        //         //   padding: EdgeInsets.only(top: 8.0),
+                        //         //   child: Text('Loading...'),
+                        //         // ),
+                        //         ) :
+                        categoryController.categoryList != null &&
                                 categoryController.categoryList!.isNotEmpty
                             ? SizedBox(
                                 height: 300.h,
@@ -178,50 +183,62 @@ class HomePage extends StatelessWidget {
                 GetBuilder<BannerController>(
                   builder: (bannerController) {
                     final bannerList = bannerController.bannerList;
-                    return bannerList.isEmpty
-                        ? const SizedBox()
-                        : SizedBox(
-                            height: 170.h,
-                            child: PageView.builder(
-                              itemCount: bannerList.length,
-                              onPageChanged: controller.onPageChanged,
-                              itemBuilder: (context, index) {
-                                final banner = bannerList[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    if (banner.resourceType == 'product' &&
-                                        banner.product != null) {
-                                      Get.toNamed(Routes.getProductDetailsRoute(
-                                          banner.product, null, false));
-                                    } else if (banner.resourceType ==
-                                            'category' &&
-                                        banner.category != null) {
-                                      Get.toNamed(
-                                        Routes.getCategoryProductRoute(
-                                          CategoryModel(id: banner.category),
-                                        ),
-                                      );
-                                    }
-                                  },
-                                  child: Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 24.w),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.skyBlue.withOpacity(.6),
-                                      borderRadius: BorderRadius.circular(25.r),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25.r),
-                                      child: Image.network(
-                                        '${bannerList[index].image}',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                    return bannerController.getBannerLoading
+                        ? const Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 12.0),
+                              child: CupertinoActivityIndicator(),
                             ),
-                          );
+                          )
+                        : bannerList.isEmpty
+                            ? const SizedBox()
+                            : SizedBox(
+                                height: 170.h,
+                                child: PageView.builder(
+                                  itemCount: bannerList.length,
+                                  onPageChanged: controller.onPageChanged,
+                                  itemBuilder: (context, index) {
+                                    final banner = bannerList[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        if (banner.resourceType == 'product' &&
+                                            banner.product != null) {
+                                          Get.toNamed(
+                                              Routes.getProductDetailsRoute(
+                                                  banner.product, null, false));
+                                        } else if (banner.resourceType ==
+                                                'category' &&
+                                            banner.category != null) {
+                                          Get.toNamed(
+                                            Routes.getCategoryProductRoute(
+                                              CategoryModel(
+                                                  id: banner.category),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 24.w),
+                                        decoration: BoxDecoration(
+                                          color:
+                                              AppColors.skyBlue.withOpacity(.6),
+                                          borderRadius:
+                                              BorderRadius.circular(25.r),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(25.r),
+                                          child: Image.network(
+                                            '${bannerList[index].image}',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
                   },
                 ),
                 const SizedBox(height: 20.0),
@@ -288,7 +305,12 @@ class HomePage extends StatelessWidget {
                     return productController.productList == null
                         ? const SizedBox()
                         : productController.isLoading
-                            ? const Center(child: CupertinoActivityIndicator())
+                            ? const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: CupertinoActivityIndicator(),
+                                ),
+                              )
                             : GridView.builder(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 24.w,

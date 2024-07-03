@@ -197,4 +197,5 @@ class ImagePath {
   static const String deleteSvg = '${BaseImagePath.imagePath}delete.svg';
   static const String apple = '${BaseImagePath.imagePath}apple.png';
   static const String bg = '${BaseImagePath.imagePath}bg.png';
+  static const String sunglassSplash = '${BaseImagePath.imagePath}sunglass_splash.png';
 }

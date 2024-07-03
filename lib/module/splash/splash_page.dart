@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunglasses/controller/config_controller.dart';
+import 'package:sunglasses/core/values/colors.dart';
 import 'package:sunglasses/core/values/strings.dart';
 import 'package:sunglasses/module/address/location_controller.dart';
 import 'package:sunglasses/module/cart/cart_controller.dart';
@@ -76,39 +77,46 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            ImagePath.splashBg,
-            height: Get.height,
-            width: Get.width,
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColors.skyBlue.withOpacity(1),
+                    AppColors.white,
+                    AppColors.skyBlue.withOpacity(.5),
+                  ],
+                ),
+              ),
+            ),
           ),
+          // Image.asset(
+          //   ImagePath.splashBg,
+          //   height: Get.height,
+          //   width: Get.width,
+          // ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Image.asset(
-                //   ImagePath.groceryLogo,
-                //   width: 201.91.w,
-                //   height: 134.71.h,
-                // ),
-                // SizedBox(
-                //   height: 40.h,
-                // ),
-                // Text(
-                //   'VEGANMARKET',
-                //   style: GoogleFonts.montserrat(
-                //     fontSize: 36,
-                //     fontWeight: FontWeight.w700,
-                //     fontStyle: FontStyle.italic,
-                //   ),
-                // ),
-                // Text(
-                //   'SUPERMARKET TAGLINE',
-                //   style: GoogleFonts.montserrat(
-                //     fontSize: 18.sp,
-                //     fontStyle: FontStyle.italic,
-                //     fontWeight: FontWeight.w700,
-                //   ),
-                // ),
+                Image.asset(
+                  ImagePath.sunglassSplash,
+                  width: 200.w,
+                  height: 200.h,
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Text(
+                  'SUNGLASSES',
+                  style: GoogleFonts.poppins(
+                    color: AppColors.primaryColor,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
           ),

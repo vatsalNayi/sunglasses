@@ -49,13 +49,13 @@ class CategoryController extends GetxController implements GetxService {
   set setCatLoading(val) => _isCatLoading = val;
 
   Future<void> getCategoryList(bool reload, int offset) async {
+    setCatLoading = true;
     if (reload) {
       _categoryList = null;
       update();
     }
     // Get.dialog(const CustomLoader(), barrierDismissible: false);
     Response response = await categoryRepo.getCategoryList(offset);
-    setCatLoading = true;
     if (response.statusCode == 200) {
       setCatLoading = false;
       if (offset == 1) {

@@ -13,11 +13,17 @@ class BannerController extends GetxController implements GetxService {
   bool get isSafeArea => _isSafeArea;
   // BannerModel bannerModel;
 
+  bool _isBannerLoading = false;
+  bool get getBannerLoading => _isBannerLoading;
+  set setBannerLoading(val) => _isBannerLoading = val;
+
   Future<void> getBannerList() async {
+    setBannerLoading = true;
     bannerList = [];
     Response response = await bannerRepo.getBannerList();
     log('Banner response: ${response.body}');
     if (response.statusCode == 200) {
+      setBannerLoading = false;
       response.body.forEach((banner) {
         BannerModel bannerModel = BannerModel.fromJson(banner);
         if (bannerModel.bannerType == 'main') {
@@ -25,6 +31,7 @@ class BannerController extends GetxController implements GetxService {
         }
       });
     } else {
+      setBannerLoading = false;
       ApiChecker.checkApi(response);
     }
     update();
