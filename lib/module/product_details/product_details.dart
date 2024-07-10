@@ -124,7 +124,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       .contains(product?.id)
                   ? ImagePath.heart
                   : ImagePath.heartEmpty,
-              trailingColor: AppColors.brightRed,
+              trailingColor: AppColors.black,
               onTapTrailing: () {
                 if (product != null) {
                   Get.find<WishListController>().addProductToWishlist(product);
@@ -144,9 +144,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 Container(
                                   height: 450.h,
                                   width: Get.width,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     shape: BoxShape.rectangle,
-                                    // gradient: gradientTopToBottomOpacity,
                                     color: AppColors.skyBlue,
                                   ),
                                   child: Center(
@@ -437,7 +436,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                                                                 decoration: BoxDecoration(
                                                                                   borderRadius: BorderRadius.circular(50.r),
                                                                                   border: Border.all(
-                                                                                    color: productController.variationIndex![index] == i ? AppColors.primaryColor : AppColors.lightRose,
+                                                                                    color: productController.variationIndex![index] == i ? AppColors.primaryColor : AppColors.grey.withOpacity(.4),
                                                                                     width: 2.w,
                                                                                   ),
                                                                                 ),
@@ -549,7 +548,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                                                   color: Get.isDarkMode
                                                       ? Theme.of(context)
                                                           .primaryColor
-                                                      : AppColors.classicRose,
+                                                      : AppColors.grey
+                                                          .withOpacity(.4),
                                                 ),
                                               ),
                                               child: Text(

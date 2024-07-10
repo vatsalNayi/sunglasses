@@ -74,25 +74,25 @@ class CartItem extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            '3 KG (static)',
-            // 'Size: '$cartData!.variationText?.toUpperCase()',
-            // formatVariationText(
-            //     '${cartData!.variationText?.toUpperCase()}'),
-            style: GoogleFonts.poppins(
-              fontSize: 15.sp,
-              // color: AppColors.black.withOpacity(0.7),
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          Text(
-            '12 Calories (static)',
-            // '${cartData!.productVariations![cartIndex].attributes}',
-            style: GoogleFonts.poppins(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          // Text(
+          //   '3 KG (static)',
+          //   // 'Size: '$cartData!.variationText?.toUpperCase()',
+          //   // formatVariationText(
+          //   //     '${cartData!.variationText?.toUpperCase()}'),
+          //   style: GoogleFonts.poppins(
+          //     fontSize: 15.sp,
+          //     // color: AppColors.black.withOpacity(0.7),
+          //     fontWeight: FontWeight.w400,
+          //   ),
+          // ),
+          // Text(
+          //   '12 Calories (static)',
+          //   // '${cartData!.productVariations![cartIndex].attributes}',
+          //   style: GoogleFonts.poppins(
+          //     fontSize: 15.sp,
+          //     fontWeight: FontWeight.w600,
+          //   ),
+          // ),
           Row(
             children: [
               Text(

@@ -76,12 +76,12 @@ class ProductCard extends StatelessWidget {
                       Positioned.fill(
                         left: 0,
                         right: 0,
-                        bottom: 45.h,
+                        bottom: 20.h,
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
                             width: 262.w,
-                            height: 75.h,
+                            height: 85.h,
                             margin: EdgeInsets.symmetric(
                               horizontal: 15.h,
                             ),
@@ -152,7 +152,7 @@ class ProductCard extends StatelessWidget {
                                       }),
                                     ],
                                   ),
-                                  Row(
+                                  Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       (productModel!.regularPrice !=
@@ -172,7 +172,7 @@ class ProductCard extends StatelessWidget {
                                                   decoration: TextDecoration
                                                       .lineThrough))
                                           : const SizedBox(),
-                                      SizedBox(width: 5.w),
+                                      // SizedBox(width: 5.w),
                                       (productModel!.regularPrice !=
                                               productModel!.price)
                                           ? const SizedBox(width: 3)

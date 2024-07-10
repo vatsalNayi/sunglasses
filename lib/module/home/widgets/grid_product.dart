@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunglasses/core/values/colors.dart';
 import 'package:sunglasses/models/product_model.dart';
+import 'package:sunglasses/module/home/products/controller/product_controller.dart';
 import 'package:sunglasses/module/wishlist/controller/wish_controller.dart';
+
+import '../../cart/cart_controller.dart';
 
 class GridProducts extends StatelessWidget {
   ProductModel productList;
@@ -33,7 +36,7 @@ class GridProducts extends StatelessWidget {
               children: [
                 Image.network(
                   '${productList.images?.first.src}',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   width: 100.w,
                   height: 100.h,
                 ),
@@ -53,39 +56,31 @@ class GridProducts extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 8.h),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 5.h,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(5.r),
-                  ),
-                  child: Text(
-                    'ADD TO CART',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.black,
-                    ),
-                  ),
-                ),
+                // SizedBox(height: 8.h),
                 // GetBuilder<ProductController>(builder: (productController) {
                 //   return GestureDetector(
                 //     onTap: () {
-                //       // Get.find<CartController>().addToCart(
-                //       //   productController.cartModel,
-                //       //   index,
-                //       // );
+                //       Get.find<CartController>().addToCart(
+                //         productController.cartModel,
+                //         index,
+                //       );
                 //     },
-                //     child: Text(
-                //       'ADD TO CART',
-                //       style: GoogleFonts.poppins(
-                //         fontSize: 15.sp,
-                //         fontWeight: FontWeight.w600,
-                //         color: AppColors.black.withOpacity(.7),
+                //     child: Container(
+                //       padding: EdgeInsets.symmetric(
+                //         horizontal: 20.w,
+                //         vertical: 5.h,
+                //       ),
+                //       decoration: BoxDecoration(
+                //         color: AppColors.white,
+                //         borderRadius: BorderRadius.circular(5.r),
+                //       ),
+                //       child: Text(
+                //         'ADD TO CART',
+                //         style: GoogleFonts.poppins(
+                //           fontSize: 14.sp,
+                //           fontWeight: FontWeight.w500,
+                //           color: AppColors.black,
+                //         ),
                 //       ),
                 //     ),
                 //   );

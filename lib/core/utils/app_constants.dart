@@ -11,7 +11,7 @@ class AppConstants {
   static const String PAGINATION_LIMIT = '10';
   static const String DOKAN_ADMIN_STORE_NAME = 'WooMond Mall';
 
-  static const String BASE_URL = 'https://ecomtheme3.raindropsinfotech.com';
+  static const String BASE_URL = 'https://ecomtheme4.raindropsinfotech.com/';
   static const String CONSUMER_KEY =
       // 'ck_9f1428f846c201a3d86f83402b993c3f4b85e5de';
       'ck_2315e98c74131a18a33c2681a807e9788ee4a1ab';

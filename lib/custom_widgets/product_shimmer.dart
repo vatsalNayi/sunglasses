@@ -74,7 +74,7 @@ class _ProductShimmerState extends State<ProductShimmer> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
-                                    width: 110,
+                                    width: 108,
                                     child: Text(
                                       '',
                                       textAlign: TextAlign.left,

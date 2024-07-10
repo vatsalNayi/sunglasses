@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sunglasses/core/values/colors.dart';
 import 'package:sunglasses/core/values/strings.dart';
 import 'package:sunglasses/custom_widgets/custom_appbar.dart';
+import 'package:sunglasses/custom_widgets/custom_image.dart';
 import 'package:sunglasses/custom_widgets/custom_textfield.dart';
 import 'package:sunglasses/custom_widgets/svg_icon.dart';
 import 'package:sunglasses/helper/product_type.dart';
@@ -155,12 +156,17 @@ class HomePage extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Image.network(
-                                              categoryList.image!.src
-                                                  .toString(),
-                                              height: 80.h,
-                                              width: 80.w,
-                                            ),
+                                            categoryList.image?.src != null
+                                                ? CustomImage(
+                                                    image:
+                                                        categoryList.image!.src,
+                                                    height: 80.h,
+                                                    width: 80.w,
+                                                  )
+                                                : SizedBox(
+                                                    height: 80.h,
+                                                    width: 80.w,
+                                                  ),
                                             SizedBox(height: 20.h),
                                             Text(
                                               '${categoryList.name}',
